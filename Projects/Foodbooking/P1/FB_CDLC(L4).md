@@ -1,5 +1,5 @@
 # Problem Statement - IXTL 
-* Add Order.js to this project
+* Modify App.js
 
 ```
 File Created by : Dhiraj
@@ -7,33 +7,8 @@ Gmail  : dhiraj.datascientist
 Github : dhirajdatascientist
 ```
 
-- In `Order.js`, create a component to display the user's order:
 
-```jsx
-// src/Order.js
-import React from 'react';
-
-function Order(props) {
-  const { orderItems } = props;
-
-  return (
-    <div>
-      <h2>Order</h2>
-      <ul>
-        {orderItems.map((item, index) => (
-          <li key={index}>
-            {item.name} - ${item.price}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
-export default Order;
-```
-
-**Step 4: Create the App Component**
+**Step 1: Create the App Component**
 - Modify the `src/App.js` file to create the main App component that renders both the Menu and Order components:
 
 ```jsx
