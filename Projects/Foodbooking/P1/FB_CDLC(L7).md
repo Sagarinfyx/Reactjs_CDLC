@@ -7,7 +7,47 @@ Gmail  : dhiraj.datascientist
 Github : dhirajdatascientist
 ```
 
-* To add images of food to your React food booking application, you can follow these steps:
+```plaintext
+food-booking-app/
+├── public/
+│   ├── index.html
+│   ├── images/
+│   │   ├── burger.jpg
+│   │   ├── pizza.jpg
+│   │   ├── fries.jpg
+├── src/
+│   ├── App.js
+│   ├── Menu.js
+│   ├── Order.js
+│   └── App.css
+├── package.json
+├── package-lock.json
+└── README.md
+```
+
+In this folder structure:
+
+1. `public/`: This is where you place your static assets, including HTML files and images. Create a subdirectory called `images` to store food images.
+
+2. `src/`: This directory contains your application's source code, including React components and styles.
+
+3. `App.js`: The main component that combines the Menu and Order components and manages the application's state.
+
+4. `Menu.js`: The component responsible for displaying the menu items and their images.
+
+5. `Order.js`: The component responsible for displaying the user's order.
+
+6. `App.css`: Your CSS styles for styling the components.
+
+7. `package.json` and `package-lock.json`: Files related to your project's dependencies.
+
+8. `README.md`: A documentation file for your project.
+
+Place your food images (e.g., `burger.jpg`, `pizza.jpg`, `fries.jpg`) inside the `public/images` directory. You can then reference these images in your code as shown in the previous example.
+
+Remember to adjust the image paths in your `Menu.js` component to match the actual filenames and extensions of your food images.
+
+# To add image Feature
 
 **Step 1: Prepare Food Images**
 First, make sure you have images of the food items you want to display in your application. You can find royalty-free food images online or create your own. Place these images in a folder within your project, e.g., a folder named `images` in the `public` directory.
@@ -54,6 +94,8 @@ export default Menu;
 **Step 3: Update Your Menu Data**
 
 Ensure that your `menuItems` array includes an `image` property for each food item. For example:
+
+* Go to App.js and update the menuItems
 
 ```jsx
 const [menuItems] = useState([
