@@ -19,7 +19,7 @@ const Login = ({ onLogin }) => {
   const handleLogin = () => {
     // Validate the username and password, and perform authentication logic here.
     // For simplicity, we'll check if the username and password match hardcoded values.
-    if (username === 'yourUsername' && password === 'yourPassword') {
+    if (username === 'admin' && password === 'admin') {
       onLogin(true, username); // Pass the username to onLogin
     } else {
       onLogin(false, ''); // Pass an empty string on failed login
