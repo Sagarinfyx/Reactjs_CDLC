@@ -9,5 +9,3 @@ In this world of coding, debugging is like chasing a mischievous cat - it can be
 So, whether you're from a village or a bustling city, take that leap into the world of ReactJS, and let's embrace the quirks and code together, one funny bug at a time!
 
 Happy coding, and remember, laughter makes debugging a tad more bearable! 😉🚀
-
-All the best..!!!
