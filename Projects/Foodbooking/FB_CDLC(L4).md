@@ -6,7 +6,6 @@ File Created by : Dhiraj
 Gmail  : dhiraj.datascientist
 Github : dhirajdatascientist
 ```
-
 - In `Order.js`, create a component to display the user's order:
 
 ```jsx
