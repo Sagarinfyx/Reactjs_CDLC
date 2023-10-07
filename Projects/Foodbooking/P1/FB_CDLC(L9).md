@@ -1,78 +1,119 @@
-# To add a + and - symbol when an item is added to the cart, you can modify your code as follows. You can keep track of the quantity of each item in the cart and display the + and - symbols to increment and decrement the quantity accordingly. Here's the modified `Menu` component and `App.js`:
+# Problem Statement - IXTL 
+* Add Login and logout feature
 
-**Menu.js:**
-
-```jsx
-import React from 'react';
-
-function Menu(props) {
-  const { menuItems, addToOrder } = props;
-
-  return (
-    <div>
-      <h2>Menu</h2>
-      <ul>
-        {menuItems.map((item, index) => (
-          <li key={index}>
-            {item.name} - ${item.price}
-            <button onClick={() => addToOrder(item)}>Add to Order</button>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
-export default Menu;
+```
+File Created by : Dhiraj
+Gmail  : dhiraj.datascientist
+Github : dhirajdatascientist
 ```
 
-**App.js:**
+Login.js:
+
+```jsx
+import React, { useState } from 'react';
+
+const Login = ({ onLogin }) => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = () => {
+    // Validate the username and password, and perform authentication logic here.
+    // For simplicity, we'll check if the username and password match hardcoded values.
+    if (username === 'yourUsername' && password === 'yourPassword') {
+      onLogin(true, username); // Pass the username to onLogin
+    } else {
+      onLogin(false, ''); // Pass an empty string on failed login
+    }
+  };
+
+  return (
+    <div className="login-form">
+      <h2>Login</h2>
+      <input
+        type="text"
+        placeholder="Username"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <button onClick={handleLogin}>Login</button>
+    </div>
+  );
+};
+
+export default Login;
+```
+
+* Go to App.js and add this code:
 
 ```jsx
 import React, { useState } from 'react';
 import Menu from './Menu';
 import Order from './Order';
+import Login from './Login';
+import './App.css';
 
 const App = () => {
-  const [menuItems, setMenuItems] = useState([
-    { name: 'Burger', price: 5.99 },
-    { name: 'Pizza', price: 8.99 },
-    { name: 'Fries', price: 2.99 },
+  const [menuItems] = useState([
+    { name: 'Burger', price: 5.99, image: 'burger.jpg' },
+    { name: 'Pizza', price: 8.99, image: 'pizza.jpg' },
+    { name: 'Fries', price: 2.99, image: 'fries.jpg' },
+    { name: 'Cake', price: 2.99, image: 'cake.jpg' },
   ]);
 
   const [orderItems, setOrderItems] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [username, setUsername] = useState('');
 
-  const addToOrder = (item) => {
-    const existingItemIndex = orderItems.findIndex((orderItem) => orderItem.name === item.name);
-
-    if (existingItemIndex !== -1) {
-      const updatedOrderItems = [...orderItems];
-      updatedOrderItems[existingItemIndex].quantity += 1;
-      setOrderItems(updatedOrderItems);
-    } else {
-      setOrderItems([...orderItems, { ...item, quantity: 1 }]);
-    }
+  const handleLogin = (loggedIn, user) => {
+    setIsLoggedIn(loggedIn);
+    setUsername(user); // Set the username when logging in
   };
 
-  const removeFromOrder = (item) => {
-    const existingItemIndex = orderItems.findIndex((orderItem) => orderItem.name === item.name);
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    setUsername('');
+  };
 
-    if (existingItemIndex !== -1) {
-      const updatedOrderItems = [...orderItems];
-      if (updatedOrderItems[existingItemIndex].quantity === 1) {
-        updatedOrderItems.splice(existingItemIndex, 1);
-      } else {
-        updatedOrderItems[existingItemIndex].quantity -= 1;
-      }
-      setOrderItems(updatedOrderItems);
-    }
+  const addToOrder = (item) => {
+    setOrderItems([...orderItems, item]);
+  };
+
+  const removeFromOrder = (index) => {
+    const newOrder = [...orderItems];
+    newOrder.splice(index, 1);
+    setOrderItems(newOrder);
   };
 
   return (
     <div className="App">
-      <h1>Food Booking App</h1>
-      <Menu menuItems={menuItems} addToOrder={addToOrder} />
-      <Order orderItems={orderItems} removeFromOrder={removeFromOrder} />
+      <header>
+        {isLoggedIn ? (
+          <div>
+            <h1>Welcome, {username}!</h1>
+            <button onClick={handleLogout}>Logout</button>
+          </div>
+        ) : (
+          <h1>Food Booking App</h1>
+        )}
+      </header>
+      {isLoggedIn ? (
+        <div>
+          <div className="Menu class grid-item">
+            <Menu menuItems={menuItems} addToOrder={addToOrder} />
+          </div>
+          <div className="Order">
+            <Order orderItems={orderItems} removeFromOrder={removeFromOrder} />
+          </div>
+        </div>
+      ) : (
+        <Login onLogin={handleLogin} />
+      )}
     </div>
   );
 };
@@ -80,4 +121,8 @@ const App = () => {
 export default App;
 ```
 
-In this code, I've added a `quantity` property to each item in the cart, and the `addToOrder` function now handles incrementing the quantity when an item is added and decrementing it when the "-" button is clicked in the `Order` component. The `Order` component will display the quantity along with each item in the cart.
+**Feature**
+1. Login
+2. Logout
+3. Username will be displayed on top
+4. Remember the last order
