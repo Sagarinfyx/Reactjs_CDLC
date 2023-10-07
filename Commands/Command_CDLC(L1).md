@@ -10,3 +10,5 @@ cd food-booking-app
 ```
 npm start
 ```
+
+That's it
