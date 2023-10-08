@@ -1,3 +1,4 @@
+```
 ## Test Your Skill
 
 1. What is React state used for?
@@ -280,3 +281,5 @@
     d) `useCustom`
 
     **Answer: a) `useContext`**
+
+```
