@@ -1,4 +1,4 @@
-Certainly! Here are 100 basic React.js interview questions to help you prepare for a React.js interview:
+```
 
 **1. What is React.js?**
 React.js is an open-source JavaScript library used for building user interfaces or UI components for web applications.
@@ -152,3 +152,4 @@ Error boundaries are components that catch and handle errors that occur during r
 **50. What is React Fiber?**
 React Fiber is a reimplementation of the React core algorithm, designed to improve performance and enable features like asynchronous rendering.
 
+```
