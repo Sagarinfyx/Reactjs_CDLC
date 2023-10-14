@@ -1,3 +1,8 @@
+## Roadmap
+1. Setup
+2. Commands
+
+--
 ### Help Me Out with Coffee! ☕
 
 _Working late nights to create this,_ if you like what I do, think about supporting me to keep going! 🚀 Buy me a coffee. 
