@@ -55,7 +55,7 @@
      <button onClick={handleLogin}>Login</button>
    )}
    ```
-
+```
    a) Displaying a loading spinner
    b) Managing a counter value
    c) Handling a form submission
