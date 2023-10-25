@@ -6,6 +6,8 @@ Firstly, ensure MongoDB is installed. If not, download and install it from the [
 ### **1.2. Start MongoDB**
 
 ### Create one json file and import the data in MongoDB
+* You will get the data from Data/quotes.json
+* Create a Database Name `quoteapp` and collection name `quotes`
 
 ## **Step 2: Backend API Setup**
 
