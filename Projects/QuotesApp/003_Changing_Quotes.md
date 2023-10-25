@@ -1,6 +1,7 @@
 ## Requirements
 * Change the quotes after every 5 seconds
-* I make use of React's `useState` and `useEffect` hooks. The basic idea is:
+* I make use of React's `useState` and `useEffect` hooks.
+* The basic idea is:
 
 1. Use an array to store multiple quotes.
 2. Use `useState` to keep track of the currently displayed quote's index.
