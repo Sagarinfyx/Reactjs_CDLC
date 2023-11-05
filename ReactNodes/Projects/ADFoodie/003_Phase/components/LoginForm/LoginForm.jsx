@@ -1,11 +1,14 @@
+// LoginForm.js
 import React, { useState } from 'react';
-import styles from './SignUpForm.module.css'; // Reusing the same styles
+import { useNavigate } from 'react-router-dom';
+import styles from '../SignUpForm/SignUpForm.module.css';
 
 const LoginForm = () => {
     const [formData, setFormData] = useState({
-        username: '',
+        email: '',
         password: ''
     });
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -13,8 +16,12 @@ const LoginForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Again, you'd normally handle the login via the server here
-        console.log('Login submitted:', formData);
+        // Here you can implement the login logic
+        console.log('Form submitted:', formData);
+    };
+
+    const navigateToSignUp = () => {
+        navigate('/signup'); // navigate to the sign-up screen
     };
 
     return (
@@ -23,11 +30,11 @@ const LoginForm = () => {
             <form onSubmit={handleSubmit}>
                 <div className={styles.formField}>
                     <input
-                        type="text"
-                        name="username"
-                        value={formData.username}
+                        type="email"
+                        name="email"
+                        value={formData.email}
                         onChange={handleChange}
-                        placeholder="Username"
+                        placeholder="Email"
                         required
                         className={styles.input}
                     />
@@ -45,6 +52,7 @@ const LoginForm = () => {
                 </div>
                 <button type="submit" className={styles.button}>Login</button>
             </form>
+            <p>Don't have an account? <button onClick={navigateToSignUp}>Sign Up Here</button></p>
         </div>
     );
 };
